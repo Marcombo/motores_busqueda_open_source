@@ -1,0 +1,85 @@
+<html>
+<head>
+<title>Products Search Engine</title>
+</head>
+<body>
+<h3>Busqueda de productos</h3>
+Buscar por nombre de producto: <input id="query" />
+<button id="search">Buscar</button>
+<hr/>
+<div id="results">
+</div>
+</body>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<script>
+
+var filter="*";
+
+function on_data(data) {
+
+var returnedData = JSON.parse(data);
+
+$('#results').empty();
+
+var docs = returnedData.response.docs;
+
+$.each(docs, function(i, item) {
+	console.log(typeof(item.price));
+	if(typeof(item.price) != 'undefined' && typeof(item.features) != 'undefined'){
+	
+		$('#results').prepend($(
+       '<strong>' + item.name + '</strong><br/>' +
+	   '<strong>' + item.price + '</strong><br/>' +
+       '<br/><div style="font-size:80%;">' + item.features +'</div><hr/>'));
+	}
+	
+
+});    
+	var total = 'Elementos encontrados: ' + docs.length + '<hr/>';
+	$('#results').prepend('<div>' + total + '</div>');
+}
+
+
+function on_search() {
+var query = $('#query').val();
+if (query.length == 0) {
+	filter="*";
+}
+else{
+	filter="name:"+query;
+}
+
+
+var solrServer = 'http://localhost:8983/solr/techproducts';
+var url = solrServer + '/select/?q='+filter + '&version=2.2&start=0&rows=50&indent=on&wt=json';
+
+$.ajax({
+    type: 'GET',
+    contentType: "application/json",
+	headers: {
+    'Access-Control-Allow-Origin':'*',
+    'Access-Control-Allow-Headers':'application/json',
+  },
+    url: url,
+    success: function (data) {
+			alert(data);
+            on_data(data);
+            
+        },
+});
+
+}
+  
+function on_ready() {
+$('#search').click(on_search);
+
+$('body').keypress(function(e) {
+	if (e.keyCode == '13') {	
+		on_search();
+	}
+});
+}
+
+$(document).ready(on_ready);
+</script>
+</html>

@@ -1,0 +1,1 @@
+Go es un lenguaje de programacion concurrente y compilado inspirado en la sintaxis de C, que intenta ser dinamico como Python y con el rendimiento de C o C++. Ha sido desarrollado por Google, y sus diseñadores iniciales fueron Robert Griesemer, Rob Pike y Ken Thompson.
