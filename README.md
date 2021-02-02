@@ -111,6 +111,7 @@ a0db60bd4771        docker.elastic.co/elasticsearch/elasticsearch:7.10.2   "/tin
 Si realizamos una petición al puerto 9200, podemos ver como tenemos nuestra instancia de elastic en ejecución.
 
 $ curl http://localhost:9200/
+
 {
 "name": "a0db60bd4771",
 "cluster_name": "docker-cluster",
@@ -130,9 +131,3 @@ $ curl http://localhost:9200/
 }
 
 La documentación oficial de Docker la podemos encontrar en https://docs.docker.com/
-
-## Instalación de Python3.Podríamos utilizar la versión 3.9
-
-https://www.python.org/downloads
-
-Al realizar la instalación,marcar el check que permite añadir la ruta de instalación a las variables de entorno
