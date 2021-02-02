@@ -42,7 +42,7 @@ Valor de variable: C:\WINDOWS;C:\WINDOWS\system32;%JAVA_HOME%\bin
 
 Se recomienda instalar la versión del openjdk y exportar la variable de entorno JAVA_HOME
 
-$ export $JAVA_HOME=usr/lib/jvm/java-8-openjdk-amd64
+###  $ export $JAVA_HOME=usr/lib/jvm/java-8-openjdk-amd64
 
 ## Instalación de Eclipse
 
@@ -73,6 +73,8 @@ Type "help", "copyright", "credits" or "license" for more information.
 La instalación de módulos se realizar a través del comando pip3 que permite instalar en tu máquina algunos de los paquetes que luego podemos usar desde
 nuestro script de forma programática.
 
+### $ pip3
+
 <img src="instalar_modulos_pip3.png">
 
 Por ejemplo,si queremos instalar el módulo de elasticSearch tenemos que usar el comando.
@@ -90,7 +92,7 @@ Podríamos probar que el módulo se encuentra correctamente instalado en tu máq
 https://www.jetbrains.com/es-es/pycharm/download/?fromMenu#section=windows
 
 # Uso de Docker como plataforma open source:
-La mayoría de herramientas que se pueden instalar de forma local descargando los paquetes y dependencias,su instalación se puede simplificar utilizando imágenes de Docker.
+La mayoría de herramientas que se pueden instalar de forma local descargando los paquetes y dependencias, su instalación se puede simplificar utilizando imágenes de Docker.
 
 Por ejemplo, si queremos levantar una instancia de ElasticSearch bastaría con tener Docker instalado y usando un comando de Docker podríamos levantar un servidor de Elastic con una única instrucción:
 
