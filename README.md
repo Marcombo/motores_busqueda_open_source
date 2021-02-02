@@ -89,4 +89,50 @@ Podríamos probar que el módulo se encuentra correctamente instalado en tu máq
 
 https://www.jetbrains.com/es-es/pycharm/download/?fromMenu#section=windows
 
+# Uso de Docker como plataforma open source:
+La mayoría de herramientas que se pueden instalar de forma local descargando los paquetes y dependencias,su instalación se puede simplificar utilizando imágenes de Docker.
 
+Por ejemplo, si queremos levantar una instancia de ElasticSearch bastaría con tener Docker instalado y usando un comando de Docker podríamos levantar un servidor de Elastic con una única instrucción:
+
+$ docker pull docker.elastic.co/elasticsearch/elasticsearch
+
+<img src="docker_elasticSearch.png">
+
+Posteriormente, podemos ejeuctar la imagen con el siguiente comando:
+
+$ docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.10.2
+
+De esta forma, tenemos levantada una instancia de un servidor de elasticSearch como podemos comprobar al ejecutar el comando:
+
+$ docker ps
+CONTAINER ID        IMAGE                                                  COMMAND                  CREATED              STATUS              PORTS                               
+a0db60bd4771        docker.elastic.co/elasticsearch/elasticsearch:7.10.2   "/tini -- /usr/local…"   About a minute ago   Up About a minute   0.0.0.0:9200->9200/tcp, 0.0.0.0:9300->9300/tcp
+
+Si realizamos una petición al puerto 9200, podemos ver como tenemos nuestra instancia de elastic en ejecución.
+
+$ curl http://localhost:9200/
+{
+"name": "a0db60bd4771",
+"cluster_name": "docker-cluster",
+"cluster_uuid": "C95oznuMQOC-Eh07ZbiCsg",
+"version": {
+"number": "7.10.2",
+"build_flavor": "default",
+"build_type": "docker",
+"build_hash": "747e1cc71def077253878a59143c1f785afa92b9",
+"build_date": "2021-01-13T00:42:12.435326Z",
+"build_snapshot": false,
+"lucene_version": "8.7.0",
+"minimum_wire_compatibility_version": "6.8.0",
+"minimum_index_compatibility_version": "6.0.0-beta1"
+},
+"tagline": "You Know, for Search"
+}
+
+La documentación oficial de Docker la podemos encontrar en https://docs.docker.com/
+
+## Instalación de Python3.Podríamos utilizar la versión 3.9
+
+https://www.python.org/downloads
+
+Al realizar la instalación,marcar el check que permite añadir la ruta de instalación a las variables de entorno
