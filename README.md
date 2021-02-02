@@ -68,6 +68,23 @@ Python 3.9.0 (tags/v3.9.0:9cf6752, Oct  5 2020, 15:34:40) [MSC v.1927 64 bit (AM
 Type "help", "copyright", "credits" or "license" for more information.
 >>>
 
+## Instalación de módulos en python
+
+La instalación de módulos se realizar a través del comando pip3 que permite instalar en tu máquina algunos de los paquetes que luego podemos usar desde
+nuestro script de forma programática.
+
+<img src="instalar_modulos_pip3.png">
+
+Por ejemplo,si queremos instalar el módulo de elasticSearch tenemos que usar el comando.
+
+$ pip3 install elasticsearch
+
+<img src="instalar_elasticSearch.png">
+
+Podríamos probar que el módulo se encuentra correctamente instalado en tu máquina si realizamos un import del módulo
+
+<img src="import_elasticSearch.png">
+
 ## Instalación de entorno PyCharm versión community(Opcional) 
 
 https://www.jetbrains.com/es-es/pycharm/download/?fromMenu#section=windows
