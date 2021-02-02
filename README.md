@@ -5,7 +5,7 @@
 
 *https://www.oracle.com/es/java/technologies/javase/javase-jdk8-downloads.html
 
-java -version
+### $ java -version
 
 java version "1.8.0_261"
 Java(TM) SE Runtime Environment (build 1.8.0_261-b12)
@@ -77,7 +77,7 @@ nuestro script de forma programática.
 
 Por ejemplo,si queremos instalar el módulo de elasticSearch tenemos que usar el comando.
 
-$ pip3 install elasticsearch
+###  $ pip3 install elasticsearch
 
 <img src="instalar_elasticSearch.png">
 
@@ -94,23 +94,23 @@ La mayoría de herramientas que se pueden instalar de forma local descargando lo
 
 Por ejemplo, si queremos levantar una instancia de ElasticSearch bastaría con tener Docker instalado y usando un comando de Docker podríamos levantar un servidor de Elastic con una única instrucción:
 
-$ docker pull docker.elastic.co/elasticsearch/elasticsearch
+###  $ docker pull docker.elastic.co/elasticsearch/elasticsearch
 
 <img src="docker_elasticSearch.png">
 
 Posteriormente, podemos ejeuctar la imagen con el siguiente comando:
 
-$ docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.10.2
+###  $ docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.10.2
 
 De esta forma, tenemos levantada una instancia de un servidor de elasticSearch como podemos comprobar al ejecutar el comando:
 
-$ docker ps
+###  $ docker ps
 CONTAINER ID        IMAGE                                                  COMMAND                  CREATED              STATUS              PORTS                               
 a0db60bd4771        docker.elastic.co/elasticsearch/elasticsearch:7.10.2   "/tini -- /usr/local…"   About a minute ago   Up About a minute   0.0.0.0:9200->9200/tcp, 0.0.0.0:9300->9300/tcp
 
 Si realizamos una petición al puerto 9200, podemos ver como tenemos nuestra instancia de elastic en ejecución.
 
-$ curl http://localhost:9200/
+###  $ curl http://localhost:9200/
 
 {
 "name": "a0db60bd4771",
